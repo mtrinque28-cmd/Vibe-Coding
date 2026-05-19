@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grand Digital Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shelf-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">📚</span>
+      <div>
+        <h1>The Grand Digital Library</h1>
+        <p class="tagline">Ten works that shaped the world</p>
+      </div>
+    </div>
+    <div class="counter" aria-live="polite">
+      <span id="book-index">1</span> / <span id="book-total">10</span>
+    </div>
+  </header>
+
+  <main class="library-main">
+    <article id="book-card" class="book-card" aria-labelledby="book-title">
+      <div class="book-spine" aria-hidden="true"></div>
+
+      <div class="book-cover-wrap">
+        <div id="book-cover" class="book-cover">
+          <span id="cover-year" class="cover-year"></span>
+          <h2 id="book-title" class="cover-title"></h2>
+          <p id="cover-author" class="cover-author"></p>
+        </div>
+      </div>
+
+      <div class="book-details">
+        <div class="author-block">
+          <div class="author-meta">
+            <p class="label">Author</p>
+            <p id="author-name" class="author-name"></p>
+            <p id="author-years" class="author-years"></p>
+          </div>
+        </div>
+
+        <section class="impact-section">
+          <h3>Impact on the world</h3>
+          <p id="book-impact" class="impact-text"></p>
+        </section>
+
+        <section class="location-section">
+          <h3>Where it is kept today</h3>
+          <p id="book-location" class="location-text"></p>
+          <a id="location-link" class="location-link" href="#" target="_blank" rel="noopener noreferrer">
+            View institution →
+          </a>
+        </section>
+      </div>
+    </article>
+
+    <nav class="controls" aria-label="Browse books">
+      <button id="prev-btn" type="button" aria-label="Previous book">
+        <span aria-hidden="true">‹</span> Previous
+      </button>
+      <div id="dots" class="dots" role="tablist" aria-label="Select a book"></div>
+      <button id="next-btn" type="button" aria-label="Next book">
+        Next <span aria-hidden="true">›</span>
+      </button>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>A curated tour of ten of the world’s most influential books.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

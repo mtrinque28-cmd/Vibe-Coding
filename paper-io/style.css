@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1a2e;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #fff;
+  user-select: none;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hud.hidden {
+  display: none;
+}
+
+.score-pill {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.score-pill .label {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.score-pill .value {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.leaderboard {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.leaderboard h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.lb-row.is-you {
+  font-weight: 700;
+}
+
+.lb-rank {
+  width: 18px;
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.lb-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lb-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lb-pct {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.lb-row.dead {
+  opacity: 0.4;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 20, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.panel {
+  background: linear-gradient(145deg, #252545, #1e1e38);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 36px 40px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.panel h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #ff6b9d, #c44dff, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.panel h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  opacity: 0.75;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.rules {
+  text-align: left;
+  list-style: none;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.rules li {
+  padding: 6px 0;
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.rules li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+}
+
+kbd {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.85em;
+}
+
+#name-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+#name-input:focus {
+  border-color: #4ecdc4;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: #0a1628;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.12s, filter 0.12s;
+}
+
+button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.final-score {
+  font-size: 1.2rem;
+  margin: 16px 0 20px;
+}
+
+.final-score span {
+  color: #4ecdc4;
+  font-weight: 800;
+}
+
+#death-msg {
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
